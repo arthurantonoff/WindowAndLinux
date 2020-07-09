@@ -1,0 +1,18 @@
+#Autor: Arthur Antonoff dos Santos
+#Data: 09/07/2020
+
+#título: Formando Discos no Windows
+
+
+Passo a Passo:
+
+1. Abrir Prompt Comando (cmd)
+2. Abrir DiskPart: digitando 'diskpart' no prompt (ou diretamente no executar com windows + r)
+3. Mostre a lista de discos disponíveis: 'list disk'
+4. Selecione o disco desejado: 'select disk n'
+5. Limpe o disco: 'clean'
+6. Crie as partições (ou apenas uma): create partition primary
+7. Formate o disco com o formato desejado: 'format fs=ntfs' ; 'format fs=fat32 quick'; *
+8. Associe o disco à uma unidade: assign
+
+* A formatação do tipo fat32 quick funciona bem fácil e muito rápida
