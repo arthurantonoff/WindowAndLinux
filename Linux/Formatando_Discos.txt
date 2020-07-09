@@ -1,7 +1,7 @@
 #Autor: Arthur Antonoff dos Santos
 #Data: 09/07/2020
 
-#título: Formando Discos no Windows
+#título: Formando Discos no Linux
 
 
 Passo a Passo:
