@@ -1,0 +1,55 @@
+#autor: Arthur Antonoff dos Santos
+
+#configuração do wifi do raspberry com ubuntu
+
+
+
+> Encontre o arquivo 50-cloud-init.yaml e o edite: 
+
+cd /etc/netplan/
+ls -l
+# -rw-r--r-- 1 root root 666 May 15 22:00 50-cloud-init.yaml
+sudo vim 50-cloud-init.yaml
+
+
+> Adicione as informações do wifi:
+
+ This file is generated from information provided by
+# the datasource.  Changes to it will not persist across an instance.
+# To disable cloud-init's network configuration capabilities, write a file
+# /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg with the following:
+# network: {config: disabled}
+network:
+    version: 2
+    ethernets:
+        eth0:
+            optional: true
+            dhcp4: true
+    # add wifi setup information here ...
+    wifis:
+        wlan0:
+            optional: true
+            access-points:
+                "Nome-do-wifi":
+                    password: "Senha"
+            dhcp4: true
+
+
+# Set hostname.
+sudo hostnamectl set-hostname my-server-name
+
+# garanta a persistencia do nome
+sudo vim /etc/cloud/cloud.cfg
+# Set preserve_hostname to true for persistance after reboot
+preserve_hostname: tr
+            
+            
+# verifique o resultado
+hostnamectl
+#   Static hostname: my-server-name
+#         Icon name: computer
+#        Machine ID: …
+#           Boot ID: …
+#  Operating System: Ubuntu 18.04.2 LTS
+#            Kernel: Linux 4.15.0-1036-raspi2
+#      Architecture: arm64
