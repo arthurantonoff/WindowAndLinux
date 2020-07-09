@@ -1,0 +1,16 @@
+#Autor: Arthur Antonoff dos Santos
+#Data: 09/07/2020
+
+#título: Formando Discos no Windows
+
+
+Passo a Passo:
+
+1. Abrir Terminal
+2. Mostrar discos disponíveis: 'fdisk -l'
+3. Verifique o caminho do disco desejado: Exemplo: /dev/sdb 
+4. Utilize o comando mkfs para formatar sua unidade seguindo do tipo de formatação: 'mkfs.ntfs'; 'mkfs.fat32'*
+
+
+* É necessário apontar as partições. Para forçar a unidade inteira a ser formatada utilize o parâmetro -F para forçar:
+Exemplo: 'mkfs.ntfs -F /dev/sdb'
